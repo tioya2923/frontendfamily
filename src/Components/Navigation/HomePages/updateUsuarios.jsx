@@ -11,9 +11,9 @@ const UpdateUsuarios = () => {
 
     const deleteUser = (id) => {
         if (window.confirm('Tem a certeza de que deseja eliminar?')) {
-            axios.delete(`${backendUrl}backend-family/components/deleteUsuario.php?id=${id}`)
+            axios.delete(`${backendUrl}components/deleteUsuario.php?id=${id}`)
                 .then(response => {
-                    console.log(response.data);
+                    console.log(response);
                     alert('Usuário eliminado com sucesso');
                     setTriggerUpdate(prevState => prevState + 1);
                 })
