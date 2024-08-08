@@ -18,7 +18,7 @@ const DeleteVideo = () => {
         const userConfirmation = window.confirm("Tem certeza que deseja eliminar este vídeo?");
 
         if (userConfirmation) {
-            axios.delete(`${backendUrl}exclusaoVideo.php?id=${id}`).then(response => {
+            axios.delete(`${backendUrl}components/exclusaoVideo.php?id=${id}`).then(response => {
                 console.log(response.data);
                 setVideos(videos.filter(video => video.id !== id));
                 alert("O vídeo foi eliminado com sucesso!");
@@ -34,7 +34,7 @@ const DeleteVideo = () => {
                         width="100%"
                         height={350}
                         controls>
-                        <source src={`${backendUrl}components/uploadsVideos/${video.video}`}></source>
+                        <source src={video.video}type="video/mp4"></source>
                     </video>
                     <p>{video.nome}</p>
                     <button onClick={() => deleteVideo(video.id)}>Eliminar</button>

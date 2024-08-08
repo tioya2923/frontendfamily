@@ -20,17 +20,20 @@ function InsertVideos() {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity
+
         })
-        .then((response) => {
-            setResult(response.data);
-            e.target.nome.value = "";
-            e.target.descricao.value = "";
-            fileInput.current.value = null;
-            setVideoURL("");
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+            .then((response) => {
+                setResult(response.data);
+                e.target.nome.value = "";
+                e.target.descricao.value = "";
+                fileInput.current.value = null;
+                setVideoURL("");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
 
     const handleFileChange = (e) => {
@@ -52,9 +55,9 @@ function InsertVideos() {
             <form onSubmit={handleSubmit}>
                 <input type="file" id="video" name="video" accept="video/*" ref={fileInput} onChange={handleFileChange} />
                 <br />
-                <input type="text" id="nome" name="nome" placeholder="Nome do vídeo"/>
+                <input type="text" id="nome" name="nome" placeholder="Nome do vídeo" />
                 <br />
-                <textarea id="descricao" name="descricao" placeholder="Texto para descrever o vídeo"></textarea> 
+                <textarea id="descricao" name="descricao" placeholder="Texto para descrever o vídeo"></textarea>
                 <br />
                 <button type="submit">Enviar</button>
             </form>

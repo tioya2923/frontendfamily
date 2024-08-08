@@ -4,7 +4,7 @@ import '../Styles/DeletePhoto.css'
 
 
 
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const DeletePhoto = () => {
   const [photos, setPhotos] = useState([]);
@@ -34,10 +34,10 @@ const DeletePhoto = () => {
     <div className='deletePhoto'>
       {photos.map(photo => (
         <div key={photo.id}>
-          <img 
-          width="100%"
-          height={350}
-          src={`${backendUrl}components/uploadsFotos/${photo.foto}`} alt={photo.nome} />
+          <img
+            width="100%"
+            height={350}
+            src={photo.foto} alt={photo.nome} />
           <p>{photo.nome}</p>
           <button onClick={() => deletePhoto(photo.id)}>Eliminar</button>
         </div>

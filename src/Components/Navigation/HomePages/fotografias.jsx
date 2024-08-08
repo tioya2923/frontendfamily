@@ -23,7 +23,7 @@ const Fotografias = () => {
             }
         };
         fetchData();
-    }, [backendUrl]);
+    }, []);
 
     return (
         <div className='container'>

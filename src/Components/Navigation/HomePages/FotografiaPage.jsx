@@ -29,10 +29,8 @@ const FotografiaPage = () => {
     return (
         <div>
             <img className='card-foto' style={{ width: '100%', height: 'auto' }} src={image.foto} alt={image.nome} />
-
             <div className='descricao'>
                 <p>{image.descricao}</p>
-
             </div>
             <div className='voltar'>
                 <Link to="/fotografias" className='voltar-a-pagina'>voltar</Link>
